@@ -18,4 +18,4 @@
 
 ## 线上使用
 
-[create-interface](https://codevity.top/interfaceCreate/index.html)
+[create-interface](https://codevity.top/interfaceCreate)
