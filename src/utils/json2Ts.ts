@@ -2,12 +2,12 @@ import * as _ from "underscore";
 import { message } from "ant-design-vue";
 
 export class Json2Ts {
-  // 合并所有
+    // 合并所有
     convert(content: string, interfaceName: string = 'interfaceName'): string {
-      if(!isJson(content)) {
-        message.error("传入非JSON数据");
-        return ''
-      }
+        if (!isJson(content)) {
+            message.error("传入非JSON数据");
+            return ''
+        }
         let jsonContent = JSON.parse(content);
 
         if (_.isArray(jsonContent)) {
@@ -116,7 +116,7 @@ export class Json2Ts {
 
         return brackets;
     }
-
+    // 格式化为ts
     private formatCharsToTypeScript(jsonContent: any, objectName: string, optionalKeys: string[]): string {
         let result = JSON.stringify(jsonContent, null, "\t")
             .replace(new RegExp("\"", "g"), "")
@@ -136,21 +136,20 @@ export class Json2Ts {
 
         return "export interface " + objectName + " " + result;
     }
-
+    // 移除负数 ies => y    s => 去掉
     private removeMajority(objectName: string): string {
         if (_.last(objectName, 3).join("").toUpperCase() === "IES") {
             return objectName.substring(0, objectName.length - 3) + "y";
         } else if (_.last(objectName)!.toUpperCase() === "S") {
             return objectName.substring(0, objectName.length - 1);
         }
-
         return objectName;
     }
-    // 第一个字符大写
+    // 首字符大写
     private toUpperFirstLetter(text: string) {
         return text.charAt(0).toUpperCase() + text.slice(1);
     };
-   // 第一个字符小写 
+    // 首字符小写 
     private toLowerFirstLetter(text: string) {
         return text.charAt(0).toLowerCase() + text.slice(1);
     };
