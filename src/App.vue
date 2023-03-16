@@ -1,7 +1,7 @@
 <template>
   <div class="app-container">
     <a-input v-model:value="interfaceName" placeholder="请输入接口名(默认: interfaceName)" />
-    <a-textarea v-model:value="jsonStr" :placeholder="jsonStrPlaceholder" :rows="26" />
+    <a-textarea v-model:value="jsonStr" :placeholder="jsonStrPlaceholder" :rows="26" @change="(e: any) => Debounced.use(() => changeTextarea(e))()"/>
    <div class="flex-button">
     <a-button type="primary" @click="handleUseTestData">使用测试数据</a-button>
     <a-button type="primary" @click="handleCreateInterface">生成</a-button>
@@ -16,6 +16,7 @@ import { ref } from "vue";
 import useClipboard from "vue-clipboard3";
 import { message } from "ant-design-vue";
 import { Json2Ts } from "@/utils/json2Ts";
+import { Debounced } from "@/utils";
 const json2ts = new Json2Ts();
 const { toClipboard } = useClipboard();
 const jsonStr = ref("");
@@ -76,6 +77,10 @@ const handleUseTestData = () =>  {
   isInterface.value = false
 }
 const handleCreateInterface = () => {
+  if(jsonStr.value.includes('export interface')) {
+    message.warn("当前已经生成, 去一键复制吧~~~");
+    return
+  }
   try{
     const content = eval(`(${jsonStr.value})`)
     result.value = json2ts.convert(JSON.stringify(content), interfaceName.value || "interfaceName"); 
@@ -107,11 +112,13 @@ const handleCopy = async () => {
     console.log(e)
   }
 };
-
 const handleClear = () => {
   jsonStr.value= ''
   interfaceName.value = ''
   isInterface.value = false
+}
+const changeTextarea = (e: any) => {
+  result.value = e.target.value
 }
 
 </script>
