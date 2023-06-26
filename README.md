@@ -18,4 +18,4 @@
 
 ## 线上使用
 
-[create-interface](https://codevity.top/interfaceCreate)
+[create-interface](https://iygxv.github.io/json2Interface_static/)

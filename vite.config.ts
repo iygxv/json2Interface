@@ -10,4 +10,8 @@ export default defineConfig({
       '@': resolve(__dirname, 'src'), 
     },
   },
+  build: {
+    outDir: 'json2Interface_static',
+    assetsDir: 'json2Interface_static/assets'
+  }
 })
