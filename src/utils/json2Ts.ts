@@ -1,12 +1,10 @@
 import * as _ from "underscore";
-import { message } from "ant-design-vue";
 
 export class Json2Ts {
     // 合并所有
-    convert(content: string, interfaceName: string = 'interfaceName'): string {
+    convert(content: string, interfaceName: string = 'RootName'): string {
         if (!isJSON(content)) {
-            message.error("传入非JSON数据")
-            return ''
+            throw new Error('json 数据 错误')
         }
         let jsonContent = JSON.parse(content)
 
@@ -17,7 +15,7 @@ export class Json2Ts {
         return this.convertObjectToTsInterfaces(jsonContent, interfaceName)
     }
     // 
-    private convertObjectToTsInterfaces(jsonContent: any, objectName: string = "interfaceName"): string {
+    private convertObjectToTsInterfaces(jsonContent: any, objectName: string = "RootName"): string {
         let optionalKeys: string[] = []
         let objectResult: string[] = []
 
@@ -126,7 +124,7 @@ export class Json2Ts {
         for (let index = 0, length = allKeys.length; index < length; index++) {
             let key = allKeys[index]
             if (_.contains(optionalKeys, key)) {
-                result = result.replace(new RegExp(key + ":", "g"), this.toLowerFirstLetter(key) + "?:")
+                result = result.replace(new RegExp(key + ":", "g"), this.toLowerFirstLetter(key) + ":")
             } else {
                 result = result.replace(new RegExp(key + ":", "g"), this.toLowerFirstLetter(key) + ":")
             }

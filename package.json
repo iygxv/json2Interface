@@ -5,22 +5,28 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vue-tsc && vite build",
+    "build": "vite build",
     "preview": "vite preview"
   },
   "dependencies": {
-    "ant-design-vue": "^3.2.15",
-    "vue-clipboard3": "^2.0.0",
+    "@codemirror/lang-javascript": "^6.2.2",
+    "@codemirror/lang-json": "^6.0.1",
+    "@codemirror/language": "^6.10.1",
+    "@codemirror/theme-one-dark": "^6.1.2",
+    "codemirror": "^6.0.1",
+    "element-plus": "^2.2.28",
     "underscore": "^1.13.6",
-    "vue": "^3.2.41"
+    "vue": "^3.2.41",
+    "vue-clipboard3": "^2.0.0",
+    "vue-codemirror": "^6.1.1"
   },
   "devDependencies": {
     "@types/node": "^18.11.9",
     "@types/underscore": "^1.11.4",
     "@vitejs/plugin-vue": "^3.2.0",
+    "sass": "^1.56.1",
     "typescript": "^4.6.4",
     "vite": "^3.2.3",
-    "vue-tsc": "^1.0.9",
-    "sass": "^1.56.1"
+    "vue-tsc": "^1.0.9"
   }
 }

@@ -11,7 +11,7 @@ export default defineConfig({
     },
   },
   build: {
-    outDir: 'json2Interface_static',
-    assetsDir: 'json2Interface_static/assets'
+    outDir: 'transform',
+    assetsDir: 'transform/assets'
   }
 })

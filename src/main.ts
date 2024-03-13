@@ -1,8 +1,9 @@
 import { createApp } from 'vue';
-import Antd from 'ant-design-vue';
 import App from './App.vue';
-import 'ant-design-vue/dist/antd.css';
+// UI框架 element-plus
+import ElementPlus from 'element-plus'
+import 'element-plus/dist/index.css'
 
 const app = createApp(App);
 
-app.use(Antd).mount('#app');
+app.use(ElementPlus).mount('#app');
