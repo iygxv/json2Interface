@@ -6,16 +6,8 @@
 
 ## 基本功能
 
-我在工具中提供了4个功能
-
-- 使用测试数据
-- 生成
-- 一键复制
-- 清空
-
-每一个功能建议大家自行的去使用, 比较简单
-
+- 转换
 
 ## 线上使用
 
-[create-interface](https://iygxv.github.io/json2Interface_static/)
+[去使用](https://icodehub.top/transform/)
