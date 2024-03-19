@@ -11,7 +11,7 @@ export default defineConfig({
     },
   },
   build: {
-    outDir: 'transform',
+    outDir: 'dist',
     assetsDir: 'transform/assets'
   }
 })
