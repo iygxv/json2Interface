@@ -58,6 +58,7 @@
 <template>
   <Codemirror
     :modelValue="code"
+    :style="{ width: '50%' }"
     :placeholder="`${props.languages === 'json' ? '请输入 JSON 数据' : '' }`"
     class="codemirror"
     :disabled="props.disabled"

@@ -11,7 +11,7 @@ import { ref, computed } from "vue";
 import Header from './Header.vue'
 const json2ts = new Json2Ts();
 import Codemirror from './Codemirror.vue'
-import { exampleJsonStr } from "./utils";
+import { exampleJsonStr, formatJsonString } from "./utils";
 import { Json2Ts } from "./utils/json2Ts";
 import { ElNotification } from 'element-plus'
 
@@ -29,7 +29,7 @@ const handleResult = () => {
   }
 }
 const codeChange = (code: string) => {
-  jsonStr.value = code
+  jsonStr.value = formatJsonString(code)
   handleResult()
 }
 handleResult()
